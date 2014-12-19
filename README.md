@@ -52,4 +52,8 @@ License
 -------
 
 The project is licensed under the MIT license.
-API Docs: http://narenaryan.github.io/yts
+
+Documentation
+-------------
+Full documentation :  http://narenaryan.github.io/yts
+
