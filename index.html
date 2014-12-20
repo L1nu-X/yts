@@ -331,6 +331,34 @@ m.download() <span class="pl-c">#Downloads movie torrent for you and adds it to 
 <p>In order to get movieIDs we need to list all torrents by applying filters and chose favorite one.Then by observing that movieID we need to create an instance of message and access information about it.</p>
 
 <h3>
+<a id="raw-data" class="anchor" href="#raw-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Raw Data</h3>
+
+<p>You can also get many other details for movies and yify movie torrents using raw methods on the YTS and Movie classes.
+A dictionary with all details will be returned,you can use that in your applications.remember raw methods are faster than high level methods.Because of this methods yts python downloader is also a python binding for YIFY API.</p>
+
+<hr>
+
+<h3>
+<a id="yts-1" class="anchor" href="#yts-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>YTS</h3>
+
+<pre><code>raw_torrents()
+raw_latest()
+raw_upcoming()
+raw_search()
+raw_requests_confirmed()
+</code></pre>
+
+<p>All arguments are similar to the native methods above. </p>
+
+<h3>
+<a id="movie-1" class="anchor" href="#movie-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Movie</h3>
+
+<pre><code>raw_movie() 
+</code></pre>
+
+<hr>
+
+<h3>
 <a id="author" class="anchor" href="#author" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author</h3>
 
 <p>yts is created by Naren Arya @ <a href="https://github.com/narenaryan">https://github.com/narenaryan</a> a programmer,a blogger and an absolutely funny guy.</p>
