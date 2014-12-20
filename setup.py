@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='yts',
-      version='0.1',
+      version='0.3',
       description='a python powered movie torrent downloader',
       url='http://github.com/storborg/funniest',
       author='NarenArya',

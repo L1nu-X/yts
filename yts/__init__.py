@@ -1,6 +1,7 @@
 import requests
 import webbrowser
 import pprint
+from rawyify import RawYTS
 
 
 #YTS class deals with listing of 
@@ -8,6 +9,7 @@ class YTS:
 	def __init__(self,username=None,password=None):
 		self.username = username
 		self.password = password
+		self.ryts = RawYTS()
 		if self.username != None:
 			self.login(username,password)
 
@@ -92,6 +94,21 @@ class YTS:
 		for i in dic['RequestList']:
 			print i['Username'],':\t',i['MovieTitle'].encode('utf-8')
 
+	def raw_upcoming(self):
+		return self.ryts.raw_upcoming()
+
+	def raw_torrents(self,limit=20,page=1,quality='ALL',rating=0,genre='ALL',sort='date'):
+		return self.ryts.raw_torrents(limit=limit,page=page,quality=quality,rating=rating,genre=genre,sort=sort)
+
+	def raw_latest(self):
+		return self.ryts.raw_latest()
+
+	def raw_search(self,movie):
+		return self.ryts.raw_search(movie)
+
+	def raw_requests_confirmed(self):
+		return self.ryts.raw_requests_confirmed()
+
 
 
 
@@ -139,6 +156,9 @@ class Movie:
 
 	def download(self):
 		webbrowser.open(self.dic['TorrentMagnetUrl'])
+
+	def raw_movie(self):
+		return self.dic
 
 
 #m = Movie(6581)
