@@ -3,7 +3,7 @@ YTS
 ========
 
 YTS is a python package that allows you to download movie torretns from web.It is also a python
-binding for the official movie torrents YTS.
+binding for the official movie torrents YTS.try out video https://www.youtube.com/watch?v=59KLKM5Ew1A
 
 Look how easy it is to use:
 
