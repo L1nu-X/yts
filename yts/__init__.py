@@ -24,23 +24,27 @@ class YTS:
 
 	#Prints torrents on to the screen.Only should be used by other functions of class
 	def print_torrents(self,dic):
-		for i in dic['MovieList']:
+		for i in dic:
 			print '==============================================================\n'
-			print '\t',i['MovieTitle'],'{movie ID: ',i['MovieID'],'}'
-			print '\t','Rating: ',i['MovieRating']
-			print '\t','Release Year: ',i['MovieYear']
-			print '\t','Quality: ',i['Quality']
-			print '\t','Size: ',i['Size']
-			print '\t','Uploaded Date: ',i['DateUploaded']
+			print '\t',i[u'title'],'{movie ID: ',i[u'id'],'}'
+			print '\t','Rating: ',i[u'rating']
+			print '\t','Language: ',i[u'language']
+			print '\t','Year: ',i[u'year']
+			print '\t','Size: ',i['torrents'][0][u'size']
+			print '\t','Size: ',i['torrents'][0][u'quality']
+			print '\t','Size: ',i['torrents'][0][u'seeds']
+			print '\t','Uploaded Date: ',i[u'date_uploaded']
 			print '==============================================================\n'
 
 	#Fetches torrents as per keyword arguments specified
-	def torrents(self,limit=20,page=1,quality='ALL',rating=0,genre='ALL',sort='date'):
-		url = 'https://yts.re/api/list.json'
-		payload = {'limit':limit,'set':page,'quality':quality,'rating':rating,'genre':genre,'sort':sort}
+	def torrents(self,limit=20,page=1,quality='ALL',rating=0,genre='ALL',sort='date', with_rt_ratings=False):
+		url = 'https://yts.to/api/v2/list_movies.json'
+		payload = {'limit':limit,'set':page,'quality':quality,'rating':rating,'genre':genre,'sort':sort, 'with_rt_ratings':with_rt_ratings}
 		res = requests.get(url,params=payload)
-		dic = res.json()
+		dic = res.json()['data']['movies'] 
+		#import ipdb;ipdb.set_trace()
 		self.print_torrents(dic)
+		
 	
 	def comment(self,id,text):
 		if self.username:
