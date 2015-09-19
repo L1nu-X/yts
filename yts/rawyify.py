@@ -11,7 +11,7 @@ class RawYTS:
 		return dic
 
 	def raw_torrents(self,limit=20,page=1,quality='ALL',rating=0,genre='ALL',sort='date'):
-		url = 'https://yts.re/api/list.json'
+		url = 'https://yts.to/api/v2/list_movies.json'
 		payload = {'limit':limit,'set':page,'quality':quality,'rating':rating,'genre':genre,'sort':sort}
 		res = requests.get(url,params=payload)
 		dic = res.json()
